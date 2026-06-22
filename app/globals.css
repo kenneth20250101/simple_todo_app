@@ -1,0 +1,214 @@
+/* ===== 全域重置與基本設定 ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-blue: #4a90e2;
+  --color-blue-light: #eaf2fd;
+  --color-green: #4caf91;
+  --color-green-light: #e6f7f1;
+  --color-text: #2c3e50;
+  --color-text-light: #8a95a3;
+  --color-border: #e2e8f0;
+  --color-danger: #e85d5d;
+  --radius: 10px;
+}
+
+body {
+  font-family: "Segoe UI", "PingFang TC", "Microsoft JhengHei", -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  background-color: #f4f7fb;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ===== 版面容器 ===== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(74, 144, 226, 0.1);
+  padding: 32px 24px;
+}
+
+/* ===== 標題 ===== */
+.todo-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-blue);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ===== 輸入區 ===== */
+.todo-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-input:focus {
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px var(--color-blue-light);
+}
+
+.todo-add-btn {
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.todo-add-btn:hover {
+  background-color: #3b7fd1;
+}
+
+.todo-add-btn:active {
+  transform: scale(0.97);
+}
+
+.todo-add-btn:disabled {
+  background-color: #b9cdea;
+  cursor: not-allowed;
+}
+
+/* ===== 統計列 ===== */
+.todo-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.todo-stats span.highlight {
+  color: var(--color-green);
+  font-weight: 600;
+}
+
+/* ===== 任務列表 ===== */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: #fafcff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease;
+}
+
+.todo-item:hover {
+  background-color: var(--color-blue-light);
+}
+
+.todo-item.completed {
+  background-color: var(--color-green-light);
+  border-color: #c9ece1;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-green);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  word-break: break-word;
+  cursor: pointer;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--color-text-light);
+}
+
+.todo-delete-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--color-danger);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.todo-delete-btn:hover {
+  background-color: #fdecec;
+  border-color: #f6c9c9;
+}
+
+/* ===== 空狀態 ===== */
+.todo-empty {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 14px;
+  padding: 32px 0;
+}
+
+/* ===== RWD：手機版調整 ===== */
+@media (max-width: 480px) {
+  .todo-app {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .todo-title {
+    font-size: 24px;
+  }
+
+  .todo-input-row {
+    flex-direction: column;
+  }
+
+  .todo-add-btn {
+    width: 100%;
+  }
+}
