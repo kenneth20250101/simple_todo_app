@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "ToDo App | 學習用待辦清單",
-  description: "給初學者練習 component、state 與事件處理的 ToDo App",
+  title: "ToDo App | 第一階段進階版",
+  description: "搭配 Supabase Auth 與 Database 的 ToDo App 教學專案",
 };
 
 export default function RootLayout({ children }) {
